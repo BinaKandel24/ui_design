@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:ui_design/view/main_content.dart';
+import 'package:ui_design/view/main_drawer.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -10,16 +12,44 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-        iconTheme: IconThemeData(
-          color: Color(
-            0xFF18D191,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0.0,
+          iconTheme: IconThemeData(
+            color: Color(
+              0xFF18D191,
+            ),
           ),
         ),
-      ),
-      body: MainContent(),
-    );
+        drawer: MainDrawer(),
+        body: WillPopScope(
+          onWillPop: () {
+            return showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    title: Text(
+                      'Are you sure?',
+                    ),
+                    content: Text('It will close the application.'),
+                    actions: <Widget>[
+                      FlatButton(
+                        onPressed: () {
+                          SystemNavigator.pop();
+                        },
+                        child: Text('Yes'),
+                      ),
+                      FlatButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Text('No'),
+                      ),
+                    ],
+                  );
+                });
+          },
+          child: MainContent(),
+        ));
   }
 }

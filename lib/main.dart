@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ui_design/view/first_page.dart';
+import 'package:ui_design/view/homepage.dart';
 
-void main() {
+var token;
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  token = prefs.getString('token');
+  print(token);
   runApp(MyApp());
 }
 
@@ -10,11 +17,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Quick Bee',
+      title: 'Service Ware',
       theme: ThemeData(
-        fontFamily: 'Roberto',
+        primarySwatch: Colors.green,
       ),
-      home: FirstPage(),
+      home: token == null ? FirstPage() : HomePage(),
     );
   }
 }

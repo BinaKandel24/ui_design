@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-//LoginrequestModel
+//LoginRequestModel
 LoginRequestModel loginRequestModelFromJson(String str) =>
     LoginRequestModel.fromJson(json.decode(str));
 

@@ -22,7 +22,7 @@ class _FirstPageState extends State<FirstPage> {
               Padding(
                 padding: EdgeInsets.only(top: 8.0, bottom: 80.0),
                 child: Text(
-                  'Quick Bee',
+                  'Service Ware',
                   style: TextStyle(
                     fontSize: 30.0,
                   ),
