@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:ui_design/view/login.dart';
+import 'package:ui_design/view/contact_us.dart';
+import 'package:ui_design/view/first_page.dart';
+import 'package:ui_design/view/homepage.dart';
+import 'package:ui_design/view/settings.dart';
 
 class MainDrawer extends StatelessWidget {
   @override
@@ -24,21 +27,40 @@ class MainDrawer extends StatelessWidget {
             leading: Icon(Icons.home),
             title: Text("Home"),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.of(context).pop();
+
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => HomePage(),
+                ),
+              );
             },
           ),
           ListTile(
             leading: Icon(Icons.settings),
             title: Text("Settings"),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.of(context).pop();
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Settings(),
+                ),
+              );
             },
           ),
           ListTile(
             leading: Icon(Icons.contacts),
             title: Text("Contact Us"),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.of(context).pop();
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ContactUs(),
+                ),
+              );
             },
           ),
           ListTile(
@@ -47,12 +69,9 @@ class MainDrawer extends StatelessWidget {
             onTap: () async {
               SharedPreferences prefs = await SharedPreferences.getInstance();
               prefs.remove('token');
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (BuildContext ctx) => LoginPage(),
-                ),
-              );
+              Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(builder: (context) => FirstPage()),
+                  (Route<dynamic> route) => false);
             },
           ),
         ],

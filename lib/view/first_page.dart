@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_design/view/login.dart';
+import 'package:ui_design/view/sign_up.dart';
 import 'package:ui_design/view/stacked_icons.dart';
 
 class FirstPage extends StatefulWidget {
@@ -113,7 +114,40 @@ class _FirstPageState extends State<FirstPage> {
                     child: Text(
                       'Google',
                       style: TextStyle(
+                        color: Colors.white,
                         fontSize: 20.0,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    top: 60.0,
+                  ),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SignUp(),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      alignment: Alignment.center,
+                      height: 60.0,
+                      child: Text(
+                        'Create New Account',
+                        style: TextStyle(
+                          fontSize: 18.0,
+                          color: Color(0xFF18D191),
+                        ),
                       ),
                     ),
                   ),

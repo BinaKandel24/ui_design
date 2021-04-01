@@ -17,8 +17,8 @@ class StackedIcons extends StatelessWidget {
         ),
         new Container(
           margin: EdgeInsets.only(
-            right: 50.0,
-            top: 50.0,
+            right: 85.0,
+            top: 60.0,
           ),
           height: 60.0,
           width: 60.0,
@@ -29,9 +29,22 @@ class StackedIcons extends StatelessWidget {
           child: Icon(Icons.home, color: Colors.white),
         ),
         new Container(
+          height: 60.0,
+          width: 60.0,
           margin: EdgeInsets.only(
-            left: 30.0,
-            top: 50.0,
+            right: 50.0,
+            top: 157.0,
+          ),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(50.0),
+            color: Color(0xFF28D560),
+          ),
+          child: Icon(Icons.search, color: Colors.white),
+        ),
+        new Container(
+          margin: EdgeInsets.only(
+            left: 50.0,
+            top: 160.0,
           ),
           height: 60.0,
           width: 60.0,
@@ -46,8 +59,8 @@ class StackedIcons extends StatelessWidget {
         ),
         new Container(
           margin: EdgeInsets.only(
-            left: 90.0,
-            top: 40.0,
+            left: 85.0,
+            top: 60.0,
           ),
           height: 60.0,
           width: 60.0,
@@ -57,6 +70,21 @@ class StackedIcons extends StatelessWidget {
           ),
           child: Icon(
             Icons.place,
+            color: Colors.white,
+          ),
+        ),
+        new Container(
+          margin: EdgeInsets.only(
+            top: 85.0,
+          ),
+          height: 60.0,
+          width: 60.0,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(50.0),
+            color: Colors.pink[300],
+          ),
+          child: Icon(
+            Icons.miscellaneous_services,
             color: Colors.white,
           ),
         ),
